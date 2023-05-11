@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="js.js" defer></script>
+    <style>
+        * {
+            font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        button,
+        input,
+        select,
+        textarea {
+            font-family: inherit;
+            font-size: 100%;
+        }
+
+        input {
+            background-color: transparent;
+            border-width: 0px 0px 1px;
+            border-bottom-color: rgba(17, 17, 17, 0.7);
+
+        }
+
+        #formContainer {
+            display: flex;
+        }
+
+        label {
+            color: rgba(17, 17, 17, 0.7);
+
+        }
+
+        input {
+            outline: none;
+        }
+
+        .errormessage {
+            display: none;
+        }
+
+        /* input:invalid:+.errormessage {
+            display: block;
+            color: rgb(215, 41, 35);
+            font-size: 11px;
+
+        } */
+
+        input:invalid:not(:focus):not(:placeholder-shown),
+        input:invalid:focus {
+            border-bottom-color: rgb(215, 41, 35);
+            color: rgb(215, 41, 35);
+
+        }
+
+        input:invalid:not(:focus):not(:placeholder-shown)+.errormessage,
+        input:invalid:focus+.errormessage {
+            display: block;
+            color: rgb(215, 41, 35);
+            font-size: 11px;
+
+        }
+
+
+
+
+        input:valid {
+            border-bottom-color: rgb(31, 127, 69);
+            color: rgb(31, 127, 69);
+
+        }
+
+        .inputcontainer {
+            box-sizing: border-box;
+            height: 55px;
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#">
+        <div id="formContainer">
+            <div>
+                <div class="inputcontainer">
+                    <div><label for="first-name">FIRST NAME</label></div>
+                    <input type="text" name="first-name" id="first-name" placeholder=" " required>
+                </div>
+                <div class="inputcontainer">
+                    <div><label for="email">EMAIL</label></div>
+                    <input type="email" name="email" id="email"
+                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|mil|biz|info|name|museum|us|ca|uk|au|de|fr|jp|kr|cn)$"
+                        placeholder=" " required>
+                    <div class="errormessage">*Please enter a valid email address</div>
+                </div>
+                <div class="inputcontainer">
+                    <div><label for="password">Password</label></div>
+                    <input type="password" name="password" id="password" placeholder=" " required
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}">
+                    <div class="errormessage"> </div>
+
+                </div>
+            </div>
+            <div>
+                <div class="inputcontainer">
+                    <div><label for="last-name">LAST NAME</label></div>
+                    <input type="text" name="last-name" id="last-name" minLength="2" maxlength="15" placeholder=" "
+                        required>
+                </div>
+                <div class="inputcontainer">
+                    <div><label for="phone">Phone number</label></div>
+                    <input type="tel" name="phone" id="phone" placeholder=" " required>
+                    <div class="errormessage">*Please enter a valid phone number</div>
+
+                </div>
+                <div class="inputcontainer">
+                    <div><label for="password-confirm">Confirm your password</label></div>
+                    <input type="password" name="password-confirm" id="password-confirm" placeholder=" "
+                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}" required value="">
+                    <div class="errormessage" id="passwordconfirmerr"></div>
+
+                </div>
+
+            </div>
+        </div>
+        <button type="submit">Create Account</button>
+    </form>
+</body>
+
+
+
+</html>
