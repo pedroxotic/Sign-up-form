@@ -23,7 +23,8 @@
 
         input {
             background-color: transparent;
-            border-width: 0px 0px 1px;
+            border-width: 1px;
+            border-radius: 5px;
             border-bottom-color: rgba(17, 17, 17, 0.7);
 
         }
@@ -60,11 +61,12 @@
         }
 
         input:invalid:not(:focus):not(:placeholder-shown)+.errormessage,
-        input:invalid:focus+.errormessage {
+        input:invalid:focus+.errormessage,
+        #passwordconfirmerr {
             display: block;
             color: rgb(215, 41, 35);
             font-size: 11px;
-
+            width: 194.444px;
         }
 
 
@@ -90,7 +92,9 @@
             <div>
                 <div class="inputcontainer">
                     <div><label for="first-name">FIRST NAME</label></div>
-                    <input type="text" name="first-name" id="first-name" placeholder=" " required>
+                    <input type="text" name="first-name" id="first-name" placeholder=" " required minlength="2">
+                    <div class="errormessage">*Must be more than two characters long</div>
+
                 </div>
                 <div class="inputcontainer">
                     <div><label for="email">EMAIL</label></div>
@@ -103,7 +107,7 @@
                     <div><label for="password">Password</label></div>
                     <input type="password" name="password" id="password" placeholder=" " required
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}">
-                    <div class="errormessage"> </div>
+                    <div class="errormessage">"Invalid password, incorrect format" </div>
 
                 </div>
             </div>
@@ -112,6 +116,8 @@
                     <div><label for="last-name">LAST NAME</label></div>
                     <input type="text" name="last-name" id="last-name" minLength="2" maxlength="15" placeholder=" "
                         required>
+                    <div class="errormessage">*Must be more than two characters long</div>
+
                 </div>
                 <div class="inputcontainer">
                     <div><label for="phone">Phone number</label></div>
@@ -123,7 +129,7 @@
                     <div><label for="password-confirm">Confirm your password</label></div>
                     <input type="password" name="password-confirm" id="password-confirm" placeholder=" "
                         pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}" required value="">
-                    <div class="errormessage" id="passwordconfirmerr"></div>
+                    <div class="errormessage">passwords do not match</div>
 
                 </div>
 
