@@ -14,3 +14,6 @@ function checkPasswords() {
 
 const form = document.querySelector("form");
 passwordConfirm.addEventListener("input", checkPasswords);
+
+const submit = document.querySelector("button");
+submit.addEventListener("click", (event) => {});

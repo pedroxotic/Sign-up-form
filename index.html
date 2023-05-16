@@ -9,9 +9,34 @@
     <link rel="stylesheet" href="style.css">
     <script src="js.js" defer></script>
     <style>
-        * {
-            font-family: Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        body {
+            display: flex;
+            margin: 0;
+            background-color: black;
+            color: #b9b9b9
         }
+
+        p {
+            font-weight: 550;
+        }
+
+        img {
+            margin: 0;
+            width: 35vw;
+            height: 657px;
+        }
+
+        @font-face {
+            font-family: logofont;
+            src: url(../Amarante-Regular.ttf);
+
+        }
+
+
+        * {
+            font-family: Roboto, Poppins, Graphik-Medium, Graphik-Regular, "Gotham SSm A", "Gotham SSm B", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
 
         button,
         input,
@@ -29,14 +54,13 @@
 
         }
 
-        #formContainer {
+        #inputContainer {
             display: flex;
-        }
-
-        label {
-            color: rgba(17, 17, 17, 0.7);
 
         }
+
+
+        label {}
 
         input {
             outline: none;
@@ -81,62 +105,192 @@
         .inputcontainer {
             box-sizing: border-box;
             height: 55px;
-            margin: 5px;
+            margin-left: 0px;
+            margin-right: 50px;
+        }
+
+        .formcontainer {
+            margin-top: 100px;
+        }
+
+        button[type="submit"] {
+            background-color: #ff3385;
+            /* neon pink color */
+            color: white;
+            /* contrasting color for text */
+            font-size: 18px;
+            /* optional: set font size */
+            padding: 10px 30px;
+            /* optional: set padding */
+            border: none;
+            /* optional: remove button border */
+            border-radius: 5px;
+            /* optional: add border radius */
+            cursor: pointer;
+            /* add pointer cursor on hover */
+            margin: 5vh;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff4d9e;
+            /* brighter shade of neon pink */
+            animation-name: neon-glow;
+
+
+        }
+
+
+
+        .formcontainer {
+            background-color: rgb(6, 6, 6);
+
+            box-shadow: 0 10px 20px -2px rgb(22, 22, 22);
+        }
+
+
+
+        .formcontainer {
+            padding-left: 5vh;
+            padding-top: 5px;
+            padding: 5px 0 5px 5vh;
+
+        }
+
+        .textcontainer {
+            width: 65vw;
+        }
+
+        .textcontainer>p {
+            margin: 0px 0 0 5vh;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: #ff3385;
+            font-weight: bold;
+        }
+
+        a:active {
+            color: #eaa4c0;
+
+        }
+
+
+        .textcontainer> :first-child {
+            margin-top: 16px;
+        }
+
+        .textcontainer :nth-child(4) {
+            margin-top: 20px;
+        }
+
+        .hero {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        label {
+            font-size: 12PX;
+        }
+
+        .cardcontainer {
+            position: relative;
+        }
+
+        .card-body {
+            display: flex;
+            justify-content: center;
+            position: absolute;
+            top: 100px;
+            width: 100%;
+            background: rgb(0, 0, 0, 0.7);
+            text-align: center;
+            font-family: Poppins;
+            font-size: 2em;
+            font-weight: bold;
+            color: white;
+            padding: 25px 0
+        }
+
+        img[src="odin-lined.png"] {
+
+            height: 25px;
+            width: 25px;
         }
     </style>
 </head>
 
 <body>
-    <form action="#">
-        <div id="formContainer">
-            <div>
-                <div class="inputcontainer">
-                    <div><label for="first-name">FIRST NAME</label></div>
-                    <input type="text" name="first-name" id="first-name" placeholder=" " required minlength="2">
-                    <div class="errormessage">*Must be more than two characters long</div>
-
-                </div>
-                <div class="inputcontainer">
-                    <div><label for="email">EMAIL</label></div>
-                    <input type="email" name="email" id="email"
-                        pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|mil|biz|info|name|museum|us|ca|uk|au|de|fr|jp|kr|cn)$"
-                        placeholder=" " required>
-                    <div class="errormessage">*Please enter a valid email address</div>
-                </div>
-                <div class="inputcontainer">
-                    <div><label for="password">Password</label></div>
-                    <input type="password" name="password" id="password" placeholder=" " required
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}">
-                    <div class="errormessage">"Invalid password, incorrect format" </div>
-
-                </div>
-            </div>
-            <div>
-                <div class="inputcontainer">
-                    <div><label for="last-name">LAST NAME</label></div>
-                    <input type="text" name="last-name" id="last-name" minLength="2" maxlength="15" placeholder=" "
-                        required>
-                    <div class="errormessage">*Must be more than two characters long</div>
-
-                </div>
-                <div class="inputcontainer">
-                    <div><label for="phone">Phone number</label></div>
-                    <input type="tel" name="phone" id="phone" placeholder=" " required>
-                    <div class="errormessage">*Please enter a valid phone number</div>
-
-                </div>
-                <div class="inputcontainer">
-                    <div><label for="password-confirm">Confirm your password</label></div>
-                    <input type="password" name="password-confirm" id="password-confirm" placeholder=" "
-                        pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}" required value="">
-                    <div class="errormessage">passwords do not match</div>
-
-                </div>
-
-            </div>
+    <div class="cardcontainer">
+        <img src="david-pisnoy-yfZG4l1NOXM-unsplash.jpg" alt="">
+        <div class="card-body">
+            <img src="odin-lined.png" alt="">
+            <div class="cardp"> ODIN</div>
         </div>
-        <button type="submit">Create Account</button>
-    </form>
+    </div>
+
+    <div class="textcontainer">
+        <p class="hero">
+            This is not a real online service! You know you need something
+        <p class="hero">
+            like this in your life to help you realize
+            your
+            deepest dreams.
+        </p>
+        <p class="hero">Sign up <em>now</em> to get started.</p>
+
+        <p class="hero">You <em>know</em> you want to.</p>
+        <div class=" formcontainer">
+            <p id="letsdothis" class="hero">Let's do this!</p>
+            <form action="#" id="form">
+                <div id="inputContainer">
+                    <div>
+                        <div class="inputcontainer">
+                            <div><label for="first-name">FIRST NAME</label></div>
+                            <input type="text" name="first-name" id="first-name" placeholder=" " required minlength="2">
+                            <div class="errormessage">*Must be more than two characters long</div>
+                        </div>
+                        <div class="inputcontainer">
+                            <div><label for="email">EMAIL</label></div>
+                            <input type="email" name="email" id="email"
+                                pattern="^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net|org|edu|gov|mil|biz|info|name|museum|us|ca|uk|au|de|fr|jp|kr|cn)$"
+                                placeholder=" " required>
+                            <div class="errormessage">*Please enter a valid email address</div>
+                        </div>
+                        <div class="inputcontainer">
+                            <div><label for="password">PASSWORD</label></div>
+                            <input type="password" name="password" id="password" placeholder=" " required
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}">
+                            <div class="errormessage">"Invalid password, incorrect format" </div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="inputcontainer">
+                            <div><label for="last-name">LAST NAME</label></div>
+                            <input type="text" name="last-name" id="last-name" minLength="2" maxlength="15"
+                                placeholder=" " required>
+                            <div class="errormessage">*Must be more than two characters long</div>
+                        </div>
+                        <div class="inputcontainer">
+                            <div><label for="phone">PHONE NUMBER</label></div>
+                            <input type="tel" name="phone" id="phone" placeholder=" " required>
+                            <div class="errormessage">*Please enter a valid phone number</div>
+                        </div>
+                        <div class="inputcontainer">
+                            <div><label for="password-confirm">CONFIRM PASSWORD</label></div>
+                            <input type="password" name="password-confirm" id="password-confirm" placeholder=" "
+                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[!@#$%^&*()_+]).{8,}" required value="">
+                            <div class="errormessage">passwords do not match</div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <button type="submit" form="form">Create Account</button>
+        <p>Already have an account <a href="#">Log in</a></p>
+    </div>
+
 </body>
 
 
